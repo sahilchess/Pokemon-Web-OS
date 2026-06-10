@@ -14,10 +14,23 @@ const backgroundImages = [
 
 let currentBackground = 0;
 
+
+
+
 function setBackground() {
   document.body.style.backgroundImage = `url('${backgroundImages[currentBackground]}')`;
   currentBackground = (currentBackground + 1) % backgroundImages.length;
 }
 
 setBackground();
-setInterval(setBackground, 10000);
+setInterval(setBackground, 2000);
+
+
+
+function playTheme() {
+  const audio = new Audio("assets/pokemon_pokemon-theme-gotta-catch-em-all-master.mp3");
+  const button = document.getElementById("playBtn");
+  button.addEventListener("click", () => {
+  audio.currentTime = 0;  
+  audio.play();
+});}

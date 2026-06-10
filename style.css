@@ -16,6 +16,23 @@ body {
 	background-attachment: fixed;
 }
 
+.top-bar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 32px;
+	padding: 12px 0;
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+	background-color: rgba(0, 0, 0, 0.125);
+	color: #fff;
+}
+
+
+
 .card {
 	width: fit-content;
 	max-width: calc(100vw - 32px);
@@ -37,4 +54,40 @@ body {
 
 .card h1 {
 	margin: 4px;
+}
+
+h1 {
+	font-size: 2.5em;
+	text-align: center;
+	font-family: "Concert One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.subheading-font {
+	font-family: "Concert One", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+.text-font {
+	font-family: "Varela Round", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+
+.pokemon-font {
+  font-family: "Londrina Solid", sans-serif;
+  color: #ffd700;
+
+  text-shadow:
+    -5px -5px 0 #1e40af,
+     5px -5px 0 #1e40af,
+    -5px  5px 0 #1e40af,
+     5px  5px 0 #1e40af,
+     0   -5px 0 #1e40af,
+     0    5px 0 #1e40af,
+    -5px  0   0 #1e40af,
+     5px  0   0 #1e40af;
 }

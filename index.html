@@ -5,17 +5,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Londrina+Outline&family=Londrina+Solid&family=Varela+Round&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <div class="card">
-      <img src="assets/logo.png" alt="pokeOS logo" width="256" height="auto" class="logo" />
-      <h1>pokeOS</h1>
-      <p><dfn>pokeOS</dfn> is a simple operating system for <strong>Pokemon</strong>.</p>
+
+
+    <div class="top-bar">
+
+      <p class="subheading-font" style="margin-left: 16px; margin: 0; margin-left: 16px;">
+        pokeOS v0.1.0-beta
+      </p>
+
+      <button onclick="playTheme()" id="playBtn" class="subheading-font" style="margin-left: 16px; margin: 0; margin-right: 16px; border-radius: 30px; padding: 8px 16px; background-color: #ffcb05; color: #3b4cca; border: none; cursor: pointer;">
+        Gotta Catch 'Em All!
+      </button>
+
+      <p class="subheading-font" style="margin-right: 16px; margin: 0; margin-right: 16px;">
+        6/21/2023 3:41 PM
+      </p>
+
+
+
     </div>
 
-    <script src="script.js"></script>
-  
-    </body>
-</html>                              
 
+
+    <div class="card">
+      <img src="assets/logo.png" alt="pokeOS logo" width="256" height="auto" class="logo" />
+      <h1 class="pokemon-font">pokeOS</h1>
+      <p class="text-font"><dfn>pokeOS</dfn> is a simple operating system for <strong>Pokemon</strong>.</p>
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+    </body>
+  </html>
+ 

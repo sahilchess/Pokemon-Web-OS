@@ -25,24 +25,39 @@ body {
 	justify-content: space-between;
 	gap: 32px;
 	padding: 12px 0;
-	z-index: 1000;
+	z-index: 1001;
 	backdrop-filter: blur(10px);
-	background-color: rgba(0, 0, 0, 0.125);
+	background-color: rgba(30, 64, 175, 0.125);
 	color: #fff;
 }
 
-
+.bottom-bar {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 32px;
+	padding: 20px 0;
+	z-index: 1000;
+	backdrop-filter: blur(10px);
+	background-color: #1e40af;
+	color: #fff;
+}
 
 .welcome {
 	
 	position: absolute;
   	top: 50%;
  	left: 50%;
+	right: auto;
+	bottom: auto;
   	transform: translate(-50%, -50%);
 }
 
 .logo {
-	display: block;
+	display: flex;
 	margin: 0 auto;
 	padding: 10px;
 	border-radius: 20px;
@@ -99,3 +114,37 @@ h1 {
 	backdrop-filter: blur(10px);
 	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
 }
+
+button{
+	margin-left: 16px; 
+	margin: 0 20px; 
+	margin-right: 16px; 
+	border-radius: 30px; 
+	padding: 8px 16px; 
+	background-color: #ffcb05; 
+	color: #3b4cca; 
+	border: none; 
+	cursor: pointer;
+}
+.close-button{
+	position: absolute; 
+	top: 12px; 
+	left: 15px; 
+	width: 12px; 
+	height: 12px; 
+	background-color: #ff5f56; 
+	border-radius: 50%; 
+	cursor: pointer;
+}
+.header{
+	cursor: move; 
+	background-color: #3b4cca; 
+	color: #fff; 
+	margin: -20px -20px -16px -20px; 
+	padding: 8px 16px; 
+	border-top-left-radius: 20px; 
+	border-top-right-radius: 20px; 
+	text-align: right; 
+	align-items: flex-end;
+
+} 

@@ -1,3 +1,4 @@
+/*
 const backgroundImages = [
   'assets/bg-images/image1.png',
   'assets/bg-images/image2.jpg',
@@ -14,16 +15,26 @@ const backgroundImages = [
 
 let currentBackground = 0;
 
-
-
-
 function setBackground() {
   document.body.style.backgroundImage = `url('${backgroundImages[currentBackground]}')`;
   currentBackground = (currentBackground + 1) % backgroundImages.length;
 }
 
 setBackground();
-setInterval(setBackground, 2000);
+setInterval(setBackground, 5000);
+
+*/
+
+function changeTime() {
+  var currentTime = new Date().toLocaleString();
+  var timeText = document.querySelector("#timeThingy");
+  timeText.innerHTML = currentTime
+}
+changeTime();
+setInterval(changeTime, 500);
+
+
+
 
 
 

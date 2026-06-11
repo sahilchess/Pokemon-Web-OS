@@ -33,16 +33,12 @@ body {
 
 
 
-.card {
-	width: fit-content;
-	max-width: calc(100vw - 32px);
-	padding: 20px;
-	border: 1px solid rgba(255, 255, 255, 0.35);
-	border-radius: 20px;
-	background: rgba(255, 255, 255, 0.82);
-	color: #111;
-	backdrop-filter: blur(10px);
-	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+.welcome {
+	
+	position: absolute;
+  	top: 50%;
+ 	left: 50%;
+  	transform: translate(-50%, -50%);
 }
 
 .logo {
@@ -52,7 +48,7 @@ body {
 	border-radius: 20px;
 }
 
-.card h1 {
+.welcome h1 {
 	margin: 4px;
 }
 
@@ -90,4 +86,16 @@ h1 {
      0    5px 0 #1e40af,
     -5px  0   0 #1e40af,
      5px  0   0 #1e40af;
+}
+
+.draggable-window {
+	width: fit-content;
+	max-width: calc(100vw - 32px);
+	padding: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.82);
+	color: #111;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
 }

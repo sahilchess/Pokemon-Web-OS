@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Londrina+Outline&family=Londrina+Solid&family=Varela+Round&display=swap" rel="stylesheet">
   </head>
-
-  <body>
+<!-- add in the bg cycle once done -->
+  <body style="height: 100vh; background-image: url('assets/bg-images/image1.png'); background-size: cover; background-repeat: no-repeat; margin: 0px;">
 
 
     <div class="top-bar">
@@ -23,7 +23,7 @@
         Gotta Catch 'Em All!
       </button>
 
-      <p class="subheading-font" style="margin-right: 16px; margin: 0; margin-right: 16px;">
+      <p id="timeThingy" class="subheading-font" style="margin-right: 16px; margin: 0; margin-right: 16px;">
         6/21/2023 3:41 PM
       </p>
 
@@ -33,7 +33,7 @@
 
 
 
-    <div class="card">
+    <div class="draggable-window welcome">
       <img src="assets/logo.png" alt="pokeOS logo" width="256" height="auto" class="logo" />
       <h1 class="pokemon-font">pokeOS</h1>
       <p class="text-font"><dfn>pokeOS</dfn> is a simple operating system for <strong>Pokemon</strong>.</p>
@@ -41,8 +41,8 @@
 
 
 
-    <script src="script.js"></script>
+    <script src="script.js">alert("pokeOS initialized!");</script>
 
-    </body>
-  </html>
+  </body> 
+</html> 
  

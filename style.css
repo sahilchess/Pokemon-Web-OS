@@ -63,18 +63,23 @@ body {
 }
 
 
-
-
-
-
 .welcome {
-	
 	position: absolute;
-  	top: 50%;
+  	top: 60%;
  	left: 50%;
 	right: auto;
 	bottom: auto;
   	transform: translate(-50%, -50%);
+}
+
+.poke-records {
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+  	resize: both;
 }
 
 .logo {
@@ -125,8 +130,10 @@ h1 {
 }
 
 .draggable-window {
-	width: fit-content;
+	width: max-content;
 	max-width: calc(100vw - 32px);
+	min-width: 280px;
+	box-sizing: border-box;
 	padding: 20px;
 	border: 1px solid rgba(255, 255, 255, 0.35);
 	border-radius: 20px;
@@ -154,7 +161,7 @@ button:hover{
 
 button:active{
 	background-color: #ffdb4d;
-	transform: translateY(4px);
+	transform: translateX(4px) translateY(4px);
 }
 
 

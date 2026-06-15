@@ -60,10 +60,24 @@ function playTheme() {
 
 var selectedIcon = undefined
 
+function selectIcon(element) {
+  element.classList.add("selected");
+  selectedIcon = element
+} 
 
+function deselectIcon(element) {
+  element.classList.remove("selected");
+  selectedIcon = undefined
+}
 
-
-
+function handleIconTap(element) {
+  if (element.classList.contains("selected")) {
+    deselectIcon(element)
+    openWindow(window)
+  } else {
+    selectIcon(element)
+  }
+}
 
 
 
@@ -75,6 +89,9 @@ var selectedIcon = undefined
 
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
+
+dragElement(document.getElementById("poke-records"));
+
 
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
@@ -134,6 +151,11 @@ var welcomeScreen = document.querySelector("#welcome")
 var welcomeScreenClose = document.querySelector("#welcomeclose")
 var welcomeScreenOpen = document.querySelector("#welcomeopen")
 
+var prScreen = document.querySelector("#poke-records")
+var prScreenClose = document.querySelector("#poke-recordsclose")
+var prScreenOpen = document.querySelector("#poke-recordsopen")
+
+
 
 function closeWindow(element) {
   element.style.display = "none"
@@ -150,3 +172,47 @@ welcomeScreenClose.addEventListener("click", function() {
 welcomeScreenOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
 });
+
+prScreenClose.addEventListener("click", function() {
+  closeWindow(prScreen);
+});
+
+prScreenOpen.addEventListener("click", function() {
+  openWindow(prScreen);
+});
+
+
+
+
+// -----------------------------------------------THE WINDOW GOING TO THE TOP WITH Z-INDEX-------------------------------------------------------
+
+var biggestIndex = 1;
+
+function addWindowTapHandling(element) {
+  element.addEventListener("mousedown", () =>
+    handleWindowTap(element)
+  )
+}
+
+var topBar = document.querySelector("#top")
+
+function openWindow(element) {
+  element.style.display = "flex";
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  topBar.style.zIndex = biggestIndex + 1;
+}
+
+function handleWindowTap(element) {
+  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.zIndex = biggestIndex;
+  topBar.style.zIndex = biggestIndex + 1;
+  deselectIcon(selectedIcon)
+}
+
+function initializeWindow(elementName) {
+  var screen = document.querySelector("#" + elementName)
+  addWindowTapHandling(screen)
+  makeClosable(elementName)
+  dragElement(screen)
+}

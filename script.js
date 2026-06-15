@@ -56,6 +56,20 @@ function playTheme() {
 });}
 
 
+// -----------------------------------------------DESKTOP WINDOW AND ICONS CODE-------------------------------------------------------
+
+var selectedIcon = undefined
+
+
+
+
+
+
+
+
+
+
+
 
 // -----------------------------------------------THE MOVEABLE WINDOW CODE BELOW, CREDIT TO W3SCHOOLS-------------------------------------------------------
 

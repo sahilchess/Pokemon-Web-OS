@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Londrina+Outline&family=Londrina+Solid&family=Varela+Round&display=swap" rel="stylesheet">
   </head>
 <!-- add in the bg cycle once done and remove whatever is here-->
-  <body style="height: 100vh; background-image: url('assets/bg-images/image10.gif'); background-size: cover; background-repeat: no-repeat; margin: 0px;">
+  <body style="height: 100vh; background-image: url('assets/bg-images/image1.png'); background-size: cover; background-repeat: no-repeat; margin: 0px;">
 
 
     <div class="top-bar">
@@ -39,10 +39,13 @@
 
 
 
-    <div class="bottom-bar">
+    <div id="desktopApps" class="desktopApps ">
+        <button id="welcomeopen" class="subheading-font">
+          <img src="assets/Poke_Ball.webp" alt="Welcome">
+        </button>
 
-        <button id="welcomeopen" class="subheading-font" >
-          WELCOME WINDOW
+        <button id="poke-recordsopen" class="subheading-font" >
+          <img src="assets/pokedex.png" style="width: 64px; height: 64px; border-radius: 16px;">
         </button>
   
 
@@ -72,6 +75,19 @@
       <p class="text-font"><dfn>pokeOS</dfn> is a simple operating system for <strong>Pokemon</strong>.</p>
     </div>
 
+
+
+
+    <div id="poke-records" class="draggable-window poke-records">
+      <div id="poke-recordsheader" class="subheading-font header" >
+        Poke Records
+      </div>
+      <div id="poke-recordsclose" class="close-button"></div>
+
+      
+    </div>
+
+	  
 
 
     <script src="script.js"></script>

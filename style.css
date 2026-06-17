@@ -65,7 +65,7 @@ body {
 
 .welcome {
 	position: absolute;
-  	top: 60%;
+  	top: 30%;
  	left: 50%;
 	right: auto;
 	bottom: auto;
@@ -79,6 +79,8 @@ body {
 	right: auto;
 	bottom: auto;
 	transform: translate(-50%, -50%);
+	width: 280px;
+	max-height: 250;
   	resize: both;
 }
 
@@ -131,16 +133,14 @@ h1 {
 
 .draggable-window {
 	width: max-content;
-	max-width: calc(100vw - 32px);
-	min-width: 280px;
 	box-sizing: border-box;
 	padding: 20px;
-	border: 1px solid rgba(255, 255, 255, 0.35);
+	border: 1px solid rgba(0, 0, 0, 0.541);
 	border-radius: 20px;
-	background: rgba(255, 255, 255, 0.82);
+	background: rgba(255, 255, 255, 0.452);
 	color: #111;
 	backdrop-filter: blur(10px);
-	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 16px 48px rgb(0, 0, 0);
 }
 
 button{

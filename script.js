@@ -197,7 +197,7 @@ function addWindowTapHandling(element) {
 var topBar = document.querySelector("#top")
 
 function openWindow(element) {
-  element.style.display = "flex";
+  element.style.display = "grid";
   biggestIndex++;  // Increment biggestIndex by 1
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
@@ -208,6 +208,7 @@ function handleWindowTap(element) {
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon)
+  handleIconTap(document.querySelector("#" + element.id + "icon"))
 }
 
 function initializeWindow(elementName) {

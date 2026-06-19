@@ -1,3 +1,5 @@
+/* ===== base reset ===== */
+
 html,
 body {
 	margin: 0;
@@ -16,84 +18,8 @@ body {
 	background-attachment: fixed;
 }
 
-.top-bar {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 32px;
-	padding: 12px 0;
-	z-index: 1001;
-	backdrop-filter: blur(10px);
-	background-color: rgba(30, 64, 175, 0.125);
-	color: #fff;
-}
 
-.desktopApps {
-	position: fixed;
-	top: 80px;
-	left: 20px;
-	padding: 16px;
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-	z-index: 1001;
-	filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.623));
-}
-
-.desktopApps img {
-	width: 64px;
-	height: 64px;
-	border-radius: 5px;
-	object-fit: fill;
-	display: block;
-	
-	
-}
-
-.desktopApps button {
-	border: 10px solid #ffd700;
-	
-	
-}
-.desktopApps.selected button {
-	border: 10px solid #1e40af;
-}
-
-
-.welcome {
-	position: absolute;
-  	top: 30%;
- 	left: 50%;
-	right: auto;
-	bottom: auto;
-  	transform: translate(-50%, -50%);
-}
-
-.poke-records {
-	position: absolute;
-	top: 75%;
-	left: 50%;
-	right: auto;
-	bottom: auto;
-	transform: translate(-50%, -50%);
-	width: 280px;
-	max-height: 250;
-  	resize: both;
-}
-
-.logo {
-	display: flex;
-	margin: 0 auto;
-	padding: 10px;
-	border-radius: 20px;
-}
-
-.welcome h1 {
-	margin: 4px;
-}
+/* ===== fonts ===== */
 
 h1 {
 	font-size: 2.5em;
@@ -115,21 +41,69 @@ h1 {
 	font-style: normal;
 }
 
-
 .pokemon-font {
-  font-family: "Londrina Solid", sans-serif;
-  color: #ffd700;
-
-  text-shadow:
-    -5px -5px 0 #1e40af,
-     5px -5px 0 #1e40af,
-    -5px  5px 0 #1e40af,
-     5px  5px 0 #1e40af,
-     0   -5px 0 #1e40af,
-     0    5px 0 #1e40af,
-    -5px  0   0 #1e40af,
-     5px  0   0 #1e40af;
+	font-family: "Londrina Solid", sans-serif;
+	color: #ffd700;
+	text-shadow:
+		-5px -5px 0 #1e40af,
+		 5px -5px 0 #1e40af,
+		-5px  5px 0 #1e40af,
+		 5px  5px 0 #1e40af,
+		 0   -5px 0 #1e40af,
+		 0    5px 0 #1e40af,
+		-5px  0   0 #1e40af,
+		 5px  0   0 #1e40af;
 }
+
+
+/* ===== top bar ===== */
+
+.top-bar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 32px;
+	padding: 12px 0;
+	z-index: 1001;
+	backdrop-filter: blur(10px);
+	background-color: rgba(30, 64, 175, 0.125);
+	color: #fff;
+}
+
+
+/* ===== desktop app icons ===== */
+
+.desktopApps {
+	position: fixed;
+	top: 80px;
+	left: 20px;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	z-index: 1001;
+	filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.623));
+}
+
+.desktopApps img {
+	width: 64px;
+	height: 64px;
+	border-radius: 5px;
+	object-fit: fill;
+	display: block;
+}
+
+.desktopApps button {
+	border: 10px solid #ffd700;
+}
+
+
+
+
+/* ===== draggable windows (shared) ===== */
 
 .draggable-window {
 	width: max-content;
@@ -143,47 +117,112 @@ h1 {
 	box-shadow: 0 16px 48px rgb(0, 0, 0);
 }
 
-button{
-	margin-left: 16px; 
-	margin: 0 20px; 
-	margin-right: 16px; 
-	border-radius: 30px; 
-	padding: 8px 16px; 
-	background-color: #ffcb05; 
-	color: #3b4cca; 
-	border: none; 
+.header {
+	cursor: move;
+	background-color: #3b4cca;
+	color: #fff;
+	margin: -20px -20px -16px -20px;
+	padding: 8px 16px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	text-align: right;
+	align-items: flex-end;
+}
+
+.close-button {
+	position: absolute;
+	top: 12px;
+	left: 15px;
+	width: 12px;
+	height: 12px;
+	background-color: #ff5f56;
+	border-radius: 50%;
 	cursor: pointer;
 }
 
-button:hover{
+
+/* ===== welcome window ===== */
+
+.welcome {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+}
+
+.welcome h1 {
+	margin: 4px;
+}
+
+.logo {
+	display: flex;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 20px;
+}
+
+
+/* ===== pokeRecords window ===== */
+
+.poke-records {
+	position: absolute;
+	top: 75%;
+	left: 50%;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	resize: both;
+	height: fit-content;
+}
+
+.poke-records-body {
+	display: flex;
+	height: 100%;
+}
+
+.poke-records-sidebar {
+	width: 28%;
+	height: 100%;
+	flex-shrink: 0;
+	background-color: #3b4ccacb;
+	border-radius: 12px;
+	padding: 16px;
+	box-sizing: border-box;
+	color: #fff;
+	margin-top: 35px;
+	
+}
+
+.poke-records-content {
+	flex: 1;
+
+	padding: 16px;
+}
+
+
+
+/* ===== buttons ===== */
+
+button {
+	margin-left: 16px;
+	margin: 0 20px;
+	margin-right: 16px;
+	border-radius: 30px;
+	padding: 8px 16px;
+	background-color: #ffcb05;
+	color: #3b4cca;
+	border: none;
+	cursor: pointer;
+}
+
+button:hover {
 	background-color: #ffdb4d;
 }
 
-button:active{
+button:active {
 	background-color: #ffdb4d;
 	transform: translateX(4px) translateY(4px);
 }
-
-
-.close-button{
-	position: absolute; 
-	top: 12px; 
-	left: 15px; 
-	width: 12px; 
-	height: 12px; 
-	background-color: #ff5f56; 
-	border-radius: 50%; 
-	cursor: pointer;
-}
-.header{
-	cursor: move; 
-	background-color: #3b4cca; 
-	color: #fff; 
-	margin: -20px -20px -16px -20px; 
-	padding: 8px 16px; 
-	border-top-left-radius: 20px; 
-	border-top-right-radius: 20px; 
-	text-align: right; 
-	align-items: flex-end;
-
-} 

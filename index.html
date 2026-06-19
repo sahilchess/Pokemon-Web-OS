@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <meta charset="utf-8" />
+    <title>pokéOS by Sahild</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +18,7 @@
     <div id="top-bar" class="top-bar">
 
       <p class="subheading-font" style="margin-left: 16px; margin: 0; margin-left: 16px;">
-        pokeOS v0.1.0-beta
+        pokéOS v0.1.0-beta
       </p>
 
       <button onclick="playTheme()" id="playBtn" class="subheading-font" >
@@ -71,21 +73,44 @@
       <div id="welcomeclose" class="close-button"></div>
 
       <img src="assets/logo.png" alt="pokeOS logo" width="256" height="auto" class="logo" style="margin-top: 16px;" />
-      <h1 class="pokemon-font">pokeOS</h1>
-      <p class="text-font"><dfn>pokeOS</dfn> is a simple operating system for <strong>Pokemon</strong>.</p>
+      <h1 class="pokemon-font">pokéOS</h1>
+      <p class="text-font"><dfn>pokéOS</dfn> is a simple operating system for <strong>Pokémon</strong>.</p>
     </div>
 
+    <div class="draggable-window poke-records" id="poke-records">
+      <div id="poke-recordsheader" class="subheading-font header">
+        pokéRecords
+      </div>
+      <div id="poke-recordsclose" class="close-button"></div>
 
-  <div class="draggable-window poke-records" id="poke-records">
-    <div id="poke-records-header" class="subheading-font header">
-      pokeRecords
+      <div class="poke-records-body">
+        <div class="poke-records-sidebar" id="poke-records-sidebar">
+          
+        </div>
+        <div class="poke-records-content" id="poke-records-content">
+          <!--
+
+
+          <p contenteditable="true" class="text-font" style="margin: 16px; line-height: 1.6;">
+            Welcome! This is a simple text editor for your Pokémon records.
+            You can write down your Pokémon team, their moves, and any other info you want to keep track of.
+            <br><br>
+            <strong>Ctrl+B</strong> to bold, <i>Ctrl+I</i> to italicize,
+            <span style="text-decoration: underline;">Ctrl+U</span> to underline.
+            <br><br>
+            Now you might notice how you can edit this, but let's make it cooler!
+            <br><br>
+            <span style="display: block; text-align: center;">
+              ~~~ Made with <del>💪</del>❤️ ~~~
+              <br>
+              By <i>@Sahild</i>
+            </span>
+          </p>
+        -->
+          
+        </div>
+      </div>
     </div>
-    <div id="poke-records-close" class="close-button"></div>
-
-    <p class="text-font">pokeRecords is a simple application that allows you to keep track of your Pokemon collection.</p>
-    <p class="text-font">To add a Pokemon to your collection, simply type in the boxes below and enter the name of the Pokemon you want to add.</p>
-    
-  </div>
 
 	  
 

@@ -1,36 +1,3 @@
-/*
-
-// -----------------------------------------------THE BG CYCLE-------------------------------------------------------
-
-
-
-const backgroundImages = [
-  'assets/bg-images/image1.png',
-  'assets/bg-images/image2.jpg',
-  'assets/bg-images/image3.jpg',
-  'assets/bg-images/image4.jpg',
-  'assets/bg-images/image5.jpg',
-  'assets/bg-images/image6.webp',
-  'assets/bg-images/image7.jpeg',
-  'assets/bg-images/image8.gif',
-  'assets/bg-images/image9.gif',
-  'assets/bg-images/image10.gif',
-  'assets/bg-images/image11.gif'
-];
-
-let currentBackground = 0;
-
-function setBackground() {
-  document.body.style.backgroundImage = `url('${backgroundImages[currentBackground]}')`;
-  currentBackground = (currentBackground + 1) % backgroundImages.length;
-}
-
-setBackground();
-setInterval(setBackground, 5000);
-
-*/
-
-
 // -----------------------------------------------THE TIME-------------------------------------------------------
 
 function changeTime() {
@@ -42,18 +9,17 @@ changeTime();
 setInterval(changeTime, 500);
 
 
-
-
 // -----------------------------------------------THE SONG-------------------------------------------------------
 
-
 function playTheme() {
-  const audio = new Audio("assets/pokemon_pokemon-theme-gotta-catch-em-all-master.mp3");
+  const audio = new Audio("assets/pokemon_theme.mp3");
+  audio.volume = 0.3;
   const button = document.getElementById("playBtn");
   button.addEventListener("click", () => {
-  audio.currentTime = 0;  
-  audio.play();
-});}
+    audio.currentTime = 0;
+    audio.play();
+  });
+}
 
 
 // -----------------------------------------------DESKTOP WINDOW AND ICONS CODE-------------------------------------------------------
@@ -63,7 +29,7 @@ var selectedIcon = undefined
 function selectIcon(element) {
   element.classList.add("selected");
   selectedIcon = element
-} 
+}
 
 function deselectIcon(element) {
   element.classList.remove("selected");
@@ -80,71 +46,48 @@ function handleIconTap(element) {
 }
 
 
-
-
-
-
-
 // -----------------------------------------------THE MOVEABLE WINDOW CODE BELOW, CREDIT TO W3SCHOOLS-------------------------------------------------------
 
-// Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
-
 dragElement(document.getElementById("poke-records"));
 
-
-// Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
-  // Step 2: Set up variables to keep track of the element's position.
   var initialX = 0;
   var initialY = 0;
   var currentX = 0;
   var currentY = 0;
 
-  // Step 3: Check if there is a special header element associated with the draggable element.
   if (document.getElementById(element.id + "header")) {
-    // Step 4: If present, assign the `dragMouseDown` function to the header's `onmousedown` event.
-    // This allows you to drag the window around by its header.
     document.getElementById(element.id + "header").onmousedown = startDragging;
   } else {
-    // Step 5: If not present, assign the function directly to the draggable element's `onmousedown` event.
-    // This allows you to drag the window by holding down anywhere on the window.
     element.onmousedown = startDragging;
   }
 
-  // Step 6: Define the `startDragging` function to capture the initial mouse position and set up event listeners.
   function startDragging(e) {
     e = e || window.event;
     e.preventDefault();
-    // Step 7: Get the mouse cursor position at startup.
     initialX = e.clientX;
     initialY = e.clientY;
-    // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.onmouseup = stopDragging;
     document.onmousemove = dragElement;
   }
 
-  // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
   function dragElement(e) {
     e = e || window.event;
     e.preventDefault();
-    // Step 10: Calculate the new cursor position.
     currentX = initialX - e.clientX;
     currentY = initialY - e.clientY;
     initialX = e.clientX;
     initialY = e.clientY;
-    // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
     element.style.top = (element.offsetTop - currentY) + "px";
     element.style.left = (element.offsetLeft - currentX) + "px";
   }
 
-  // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
   function stopDragging() {
     document.onmouseup = null;
     document.onmousemove = null;
   }
 }
-
 
 
 var welcomeScreen = document.querySelector("#welcome")
@@ -155,33 +98,10 @@ var prScreen = document.querySelector("#poke-records")
 var prScreenClose = document.querySelector("#poke-recordsclose")
 var prScreenOpen = document.querySelector("#poke-recordsopen")
 
-
-
-function closeWindow(element) {
-  element.style.display = "none"
-}
-
-function openWindow(element) {
-  element.style.display = "block"
-}
-
-welcomeScreenClose.addEventListener("click", function() {
-  closeWindow(welcomeScreen);
-});
-
-welcomeScreenOpen.addEventListener("click", function() {
-  openWindow(welcomeScreen);
-});
-
-prScreenClose.addEventListener("click", function() {
-  closeWindow(prScreen);
-});
-
-prScreenOpen.addEventListener("click", function() {
-  openWindow(prScreen);
-});
-
-
+welcomeScreenClose.addEventListener("click", function() { closeWindow(welcomeScreen); });
+welcomeScreenOpen.addEventListener("click", function() { openWindow(welcomeScreen); });
+prScreenClose.addEventListener("click", function() { closeWindow(prScreen); });
+prScreenOpen.addEventListener("click", function() { openWindow(prScreen); });
 
 
 // -----------------------------------------------THE WINDOW GOING TO THE TOP WITH Z-INDEX-------------------------------------------------------
@@ -189,22 +109,24 @@ prScreenOpen.addEventListener("click", function() {
 var biggestIndex = 1;
 
 function addWindowTapHandling(element) {
-  element.addEventListener("mousedown", () =>
-    handleWindowTap(element)
-  )
+  element.addEventListener("mousedown", () => handleWindowTap(element))
 }
 
-var topBar = document.querySelector("#top")
+var topBar = document.querySelector("#top-bar")
+
+function closeWindow(element) {
+  element.style.display = "none"
+}
 
 function openWindow(element) {
-  element.style.display = "grid";
-  biggestIndex++;  // Increment biggestIndex by 1
+  element.style.display = "block";
+  biggestIndex++;
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
 }
 
 function handleWindowTap(element) {
-  biggestIndex++;  // Increment biggestIndex by 1
+  biggestIndex++;
   element.style.zIndex = biggestIndex;
   topBar.style.zIndex = biggestIndex + 1;
   deselectIcon(selectedIcon)
@@ -217,3 +139,91 @@ function initializeWindow(elementName) {
   makeClosable(elementName)
   dragElement(screen)
 }
+
+addWindowTapHandling(welcomeScreen)
+addWindowTapHandling(prScreen)
+
+
+// -----------------------------------------------CONTENT FOR POKE RECORDS-------------------------------------------------------
+
+var content = [
+  {
+    title: "Welcome to PokéRecords!",
+    date: "6/18/2026",
+    content: `
+      <p contenteditable="true" class="text-font" style="margin: 16px; line-height: 1.6;">
+        Welcome! This is a simple text editor for your Pokémon records.
+        You can write down your Pokémon team, their moves, and any other info you want to keep track of.
+        <br><br>
+        <strong>Ctrl+B</strong> to bold, <i>Ctrl+I</i> to italicize,
+        <span style="text-decoration: underline;">Ctrl+U</span> to underline.
+        <br><br>
+        Now you might notice how you can edit this, but let's make it cooler!
+        <br><br>
+        <span style="display: block; text-align: center;">
+          ~~~ Made with ❤️ ~~~
+          <br>
+          By <i>@Sahild</i>
+        </span>
+      </p>
+    `
+  },
+  {
+    title: "Pokémon Team",
+    date: "6/18/2026",
+    content: `
+      <p contenteditable="true" class="text-font" style="margin: 16px; line-height: 1.6;">
+        Here's my Pokémon team:
+        <br><br>
+        1. Pikachu - Electric Type<br>
+        2. Charizard - Fire/Flying Type<br>
+        3. Bulbasaur - Grass/Poison Type<br>
+        4. Squirtle - Water Type<br>
+        5. Jigglypuff - Normal/Fairy Type<br>
+        6. Gengar - Ghost/Poison Type
+      </p>
+    `
+  },
+  {
+    title: "Pokémon Moves",
+    date: "6/18/2026",
+    content: `
+      <p contenteditable="true" class="text-font" style="margin: 16px; line-height: 1.6;">
+        Here are some moves my Pokémon can learn:
+        <br><br>
+        - Pikachu: Thunderbolt, Quick Attack, Iron Tail<br>
+        - Charizard: Flamethrower, Fly, Dragon Claw<br>
+        - Bulbasaur: Vine Whip, Razor Leaf, Sleep Powder<br>
+        - Squirtle: Water Gun, Bubble, Hydro Pump<br>
+        - Jigglypuff: Sing, Double Slap, Hyper Voice<br>
+        - Gengar: Shadow Ball, Sludge Bomb, Dark Pulse
+      </p>
+    `
+  }
+]
+
+function setNotesContent(index) {
+  document.querySelector("#poke-records-content").innerHTML = content[index].content
+}
+
+function addToSideBar(index) {
+  var sideBar = document.querySelector("#poke-records-sidebar")
+  var note = content[index]
+  var newDiv = document.createElement("div")
+  newDiv.style.cursor = "pointer"
+  newDiv.style.padding = "8px 16px"
+  newDiv.innerHTML = `
+    <p class="subheading-font" style="margin: 0; font-size: 16px;">${note.title}</p>
+    <p class="text-font" style="margin: 0; font-size: 12px;">${note.date}</p>
+  `
+  newDiv.addEventListener("click", function() {
+    setNotesContent(index)
+  })
+  sideBar.appendChild(newDiv)
+}
+
+for (let i = 0; i < content.length; i++) {
+  addToSideBar(i)
+}
+
+setNotesContent(0)

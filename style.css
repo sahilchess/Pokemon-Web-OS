@@ -23,6 +23,7 @@ body {
 
 h1 {
 	font-size: 2.5em;
+	margin-top: 0;
 	text-align: center;
 	font-family: "Concert One", sans-serif;
 	font-weight: 400;
@@ -80,7 +81,7 @@ h1 {
 	position: fixed;
 	top: 80px;
 	left: 20px;
-	padding: 16px;
+	padding: 10px;
 	display: flex;
 	flex-direction: column;
 	gap: 32px;
@@ -89,11 +90,12 @@ h1 {
 }
 
 .desktopApps img {
-	width: 64px;
-	height: 64px;
-	border-radius: 5px;
+	width: 40px;
+	height: 40px;
+	border-radius: 16px;
 	object-fit: fill;
 	display: block;
+
 }
 
 .desktopApps button {
@@ -201,6 +203,103 @@ h1 {
 
 	padding: 16px;
 }
+
+/* ===== Video window ===== */
+
+.video-screen {
+	position: absolute;
+	top: 50%;
+	left: 83%;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	resize: both;
+	height: fit-content;
+}
+
+.video-screen-body {
+	display: flex;
+	height: 100%;
+}
+
+
+.video-screen-content {
+	flex: 1;
+
+	padding: 16px;
+}
+
+.video-screen-content video {
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	margin-right: 35px;
+	margin-top: 35px;
+}
+
+/* ===== Image Carousel window ===== */
+
+.image-carousel {
+	position: absolute;
+	top: 69%;
+	left: 17%;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	resize: both;
+	height: fit-content;
+}
+
+.image-carousel-body {
+	display: flex;
+	height: 100%;
+}
+
+
+.image-carousel-content {
+	flex: 1;
+
+	padding: 16px;
+}
+
+.image-carousel-content img {
+	width: 100%;
+	height: auto;
+	border-radius: 12px;
+	margin-right: 35px;
+	margin-top: 35px;
+}
+
+/* ===== coinflip window ===== */
+
+.coinflip {
+	position: absolute;
+	top: 47%;
+	left: 18%;
+	right: auto;
+	bottom: auto;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	resize: both;
+	height: fit-content;
+}
+
+.coinflip-body {
+	display: flex;
+	height: 100%;
+	padding: 16px;
+}
+
+
+.coinflip-content {
+	justify-content: center;
+	align-items: center;
+	flex: 1;
+	padding: 16px;
+}
+
 
 
 

@@ -12,14 +12,23 @@ setInterval(changeTime, 500);
 // -----------------------------------------------THE SONG-------------------------------------------------------
 
 function playTheme() {
+  let paused = true;
   const audio = new Audio("assets/pokemon_theme.mp3");
-  audio.volume = 0.3;
-  const button = document.getElementById("playBtn");
-  button.addEventListener("click", () => {
-    audio.currentTime = 0;
-    audio.play();
+  audio.volume = 0.05;
+  const play_btn = document.getElementById("play_btn");
+  play_btn.addEventListener("click", () => {
+    audio.play(audio.currentTime);
+    paused = false;
+  });
+
+  const pause_btn = document.getElementById("pause_btn");
+  pause_btn.addEventListener("click", () => {
+    audio.pause();
+    paused = true;
   });
 }
+
+playTheme();
 
 
 // -----------------------------------------------DESKTOP WINDOW AND ICONS CODE-------------------------------------------------------
@@ -78,7 +87,9 @@ function dragElement(element) {
     currentY = initialY - e.clientY;
     initialX = e.clientX;
     initialY = e.clientY;
-    element.style.top = (element.offsetTop - currentY) + "px";
+    const topBarHeight = topBar ? topBar.offsetHeight : 0;
+    const nextTop = Math.max(element.offsetTop - currentY, topBarHeight);
+    element.style.top = nextTop + "px";
     element.style.left = (element.offsetLeft - currentX) + "px";
   }
 
@@ -297,16 +308,16 @@ setICContent(0);
 
 var CFcontent = [
   {
-    img: `<img src="assets/coinflip/heads.gif" alt="heads" style="width: 200px; height: 200px;">`,
+    img: `<img src="assets/coinflip/heads.gif" alt="heads" style="width: 125px; height: 125px;">`,
   },
   {
-    img: `<img src="assets/coinflip/tails.gif" alt="tails"  style="width: 200px; height: auto;">`,
+    img: `<img src="assets/coinflip/tails.gif" alt="tails"  style="width: 125px; height: auto;">`,
   },
   {
-    img: `<img src="assets/coinflip/surprised-pikachu.gif" alt="suprised" style="width: 200px; height: 200px;">`,
+    img: `<img src="assets/coinflip/surprised-pikachu.gif" alt="suprised" style="width: 125px; height: 125px;">`,
   },
   {
-    img: `<img src="assets/coinflip/coinflip.gif" alt="coinflip" style="width: 200px; height: 200px;">`,
+    img: `<img src="assets/coinflip/coinflip.gif" alt="coinflip" style="width: 125px; height: 125px;">`,
   },
 ]
 
@@ -354,8 +365,6 @@ flipinput.addEventListener("click", () => {
 
 
 setCFContent(2);
-
-
 
 
 // -----------------------------------------------INITIALIZE THE WINDOWS-------------------------------------------------------

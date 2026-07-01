@@ -103,8 +103,6 @@ h1 {
 }
 
 
-
-
 /* ===== draggable windows (shared) ===== */
 
 .draggable-window {
@@ -242,7 +240,7 @@ h1 {
 
 .image-carousel {
 	position: absolute;
-	top: 69%;
+	top: 75%;
 	left: 17%;
 	right: auto;
 	bottom: auto;
@@ -276,7 +274,7 @@ h1 {
 
 .coinflip {
 	position: absolute;
-	top: 47%;
+	top: 34%;
 	left: 18%;
 	right: auto;
 	bottom: auto;
@@ -300,8 +298,23 @@ h1 {
 	padding: 16px;
 }
 
+.coinflip-content h1 {
+	text-align: center;
+	font-size: 24px;
+}
 
 
+.coinflip-content p {
+	text-align: center;
+	font-size: 12px;
+}
+
+
+.coinflip-content content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 /* ===== buttons ===== */
 

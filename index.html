@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <title>pokéOS by Sahild</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="icon" type="image/ico" href="assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <div id="top-bar" class="top-bar">
 
       <p class="subheading-font" style="margin-left: 16px; margin: 0; margin-left: 16px;">
-        pokéOS v0.1.0-beta
+        pokéOS V2.0 - beta
       </p>
 
       <button onclick="playTheme()" id="playBtn" class="subheading-font" >
@@ -26,7 +26,8 @@
       </button>
 
       <p id="timeThingy" class="subheading-font" style="margin-right: 16px; margin: 0; margin-right: 16px;">
-        6/21/2023 3:41 PM
+        6/23/2026 12:44 PM
+        <!-- This was the time of ship #2 -->
       </p>
 
 
@@ -42,20 +43,32 @@
 
 
     <div id="desktopApps" class="desktopApps ">
+
         <button id="welcomeopen" class="subheading-font">
-          <img src="assets/Poke_Ball.webp" alt="Welcome">
+          <img src="assets/Poke_Ball.webp" >
         </button>
 
         <button id="poke-recordsopen" class="subheading-font" >
-          <img src="assets/pokedex.png" style="width: 64px; height: 64px; border-radius: 16px;">
+          <img src="assets/pokedex.png" >
         </button>
   
+        <button id="video-screenopen" class="subheading-font" >
+          <img src="assets/pokemon_tv.jpg" >
+        </button>
 
+        <button id="image-carouselopen" class="subheading-font" >
+          <img src="assets/IC_logo.png" >
+        </button>
 
+        <button id="coin-flipopen" class="subheading-font" >
+          <img src="assets/coin-logo.png" >
+        </button>
 
 
     </div>
+    
 
+      
 
 
 
@@ -84,34 +97,95 @@
       <div id="poke-recordsclose" class="close-button"></div>
 
       <div class="poke-records-body">
+
         <div class="poke-records-sidebar" id="poke-records-sidebar">
-          
         </div>
+
         <div class="poke-records-content" id="poke-records-content">
-          <!--
-
-
-          <p contenteditable="true" class="text-font" style="margin: 16px; line-height: 1.6;">
-            Welcome! This is a simple text editor for your Pokémon records.
-            You can write down your Pokémon team, their moves, and any other info you want to keep track of.
-            <br><br>
-            <strong>Ctrl+B</strong> to bold, <i>Ctrl+I</i> to italicize,
-            <span style="text-decoration: underline;">Ctrl+U</span> to underline.
-            <br><br>
-            Now you might notice how you can edit this, but let's make it cooler!
-            <br><br>
-            <span style="display: block; text-align: center;">
-              ~~~ Made with <del>💪</del>❤️ ~~~
-              <br>
-              By <i>@Sahild</i>
-            </span>
-          </p>
-        -->
-          
         </div>
+
+      </div>
+    </div>
+                          
+                         
+                     
+    <div class="draggable-window video-screen" id="video-screen">
+      <div id="video-screenheader" class="subheading-font header">
+        Video Player
+      </div>
+      <div id="video-screenclose" class="close-button"></div>
+
+      <div class="video-screen-body">
+
+
+        <div class="video-screen-content" id="video-screen-content">
+          <video id="video-player" width="100%" height="auto" controls>
+            <source src="assets/pokemn_theme_vid.mp4" type="video/mp4">
+          </video>
+        </div>
+
       </div>
     </div>
 
+
+
+
+
+
+    <div class="draggable-window image-carousel" id="image-carousel">
+      <div id="image-carouselheader" class="subheading-font header">
+        Image Carousel
+      </div>
+      <div id="image-carouselclose" class="close-button"></div>
+
+      <div class="image-carousel-body">
+
+        <button id="prev-btn" class="subheading-font" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%);">
+          <strong>&lt;</strong>
+        </button>
+
+        <div class="image-carousel-content" id="image-carousel-content">
+        </div>
+
+        <button id="next-btn" class="subheading-font" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%);">
+          <strong>&gt;</strong>
+        </button>
+
+      </div>
+    </div>
+
+
+
+    <div class="draggable-window coinflip" id="coinflip">
+      <div id="coinflipheader" class="subheading-font header">
+        Coin Flip
+      </div>
+      <div id="coinflipclose" class="close-button"></div>
+
+      <div class="coinflip-body">
+        
+
+        <div class="coinflip-content" id="coinflip-content">
+          <h1 class="heading-font">Flip a Coin</h1>
+          <h3 class="subheading-font">Click the button below to flip a coin and see the result!</h3>
+          <h3 class="text-font">If you get heads, you win!</h3>
+          <h3 class="text-font">If you get tails, your desktop icons start disappearing!!</h3>
+          <button id="flip-coin-btn" class="subheading-font" style="margin-left: 55px; margin-top: 16px;">
+            Flip Coin
+          </button>
+          
+          <p id="coin-result-text" class="text-font" style="margin-top: 16px;">
+            The Result was...
+          </p>
+          <content id="coin-result" class="text-font" style="margin-top: 16px;">
+            <!-- Coin flip result will be displayed here --> 
+
+          </content>
+ 
+        </div>
+
+      </div>
+    </div>
 	  
 
 

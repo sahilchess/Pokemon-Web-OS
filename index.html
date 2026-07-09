@@ -18,17 +18,13 @@
     <div id="top-bar" class="top-bar">
 
       <p class="subheading-font" style="margin-left: 16px; margin: 0; margin-left: 16px;">
-        pokéOS V2.0 - beta
+        pokéOS V2.1 - beta
       </p>
 
-      <div class="song-div">
-        <button id="play_btn" class="subheading-font" >
-          Gotta Catch 'Em All!
-        </button>
+      <div id="song-div" class="subheading-font">
+        
 
-        <button id="pause_btn" class="subheading-font" >
-          Pause
-        </button>
+        
       </div>
       
 
@@ -49,29 +45,32 @@
 
 
 
-    <div id="desktopApps" class="desktopApps ">
-
-        <button id="welcomeopen" class="subheading-font">
-          <img src="assets/Poke_Ball.webp" >
+    <div id="desktopApps" class="desktopApps">
+      <div id="dock" class="dock">
+        <button id="welcomeopen" class="subheading-font dock-item">
+          <img src="assets/logos/Poke_Ball.webp" >
         </button>
 
-        <button id="poke-recordsopen" class="subheading-font" >
-          <img src="assets/pokedex.png" >
-        </button>
-  
-        <button id="video-screenopen" class="subheading-font" >
-          <img src="assets/pokemon_tv.jpg" >
+        <button id="poke-recordsopen" class="subheading-font dock-item">
+          <img src="assets/logos/pokedex.png" >
         </button>
 
-        <button id="image-carouselopen" class="subheading-font" >
-          <img src="assets/IC_logo.png" >
+        <button id="video-screenopen" class="subheading-font dock-item">
+          <img src="assets/logos/pokemon_tv.jpg" >
         </button>
 
-        <button id="coin-flipopen" class="subheading-font" >
-          <img src="assets/coin-logo.png" >
+        <button id="image-carouselopen" class="subheading-font dock-item">
+          <img src="assets/logos/IC_logo.png" >
         </button>
 
+        <button id="coin-flipopen" class="subheading-font dock-item">
+          <img src="assets/logos/coin-logo.png" >
+        </button>
 
+        <button id="close_all_btn" class="subheading-font dock-item">
+          <img src="assets/logos/x.jpg" >
+        </button>
+      </div>
     </div>
     
 
@@ -92,9 +91,9 @@
       </div>
       <div id="welcomeclose" class="close-button"></div>
 
-      <img src="assets/logo.png" alt="pokeOS logo" width="256" height="auto" class="logo" style="margin-top: 16px;" />
+      <img src="assets/logos/logo.png" alt="pokeOS logo" width="256" height="auto" class="logo" style="margin-top: 16px;" />
       <h1 class="pokemon-font">pokéOS</h1>
-      <p class="text-font"><dfn>pokéOS</dfn> is a simple operating system for <strong>Pokémon</strong>.</p>
+      <p class="text-font"><dfn>pokéOS</dfn> is a simple web operating system themed with <strong>Pokémon</strong>.</p>
     </div>
 
     <div class="draggable-window poke-records" id="poke-records">
@@ -104,13 +103,17 @@
       <div id="poke-recordsclose" class="close-button"></div>
 
       <div class="poke-records-body">
+        
 
-        <div class="poke-records-sidebar" id="poke-records-sidebar">
+        <div class="poke-records-sidebar" id="poke-records-sidebar" >
+          <button class="poke-records-plus" id="poke-records-plus" >
+            +
+          </button>
         </div>
 
-        <div class="poke-records-content" id="poke-records-content">
-        </div>
 
+        <div class="poke-records-content" id="poke-records-content" >
+        </div>
       </div>
     </div>
                           

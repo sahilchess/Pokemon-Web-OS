@@ -11,23 +11,30 @@ setInterval(changeTime, 500);
 
 // -----------------------------------------------THE SONG-------------------------------------------------------
 
+var play_btn_labels = ["Gotta Catch 'Em All!", "Pause", "Play"];
+
+document.querySelector("#song-div").innerHTML = `<button id="play_btn" class="subheading-font">${play_btn_labels[0]}</button>`;
+
 function playTheme() {
-  let paused = true;
-  const audio = new Audio("assets/pokemon_theme.mp3");
-  audio.volume = 0.05;
-  const play_btn = document.getElementById("play_btn");
-  play_btn.addEventListener("click", () => {
-    audio.play(audio.currentTime);
-    paused = false;
-  });
+	let paused = 0;
+	const audio = new Audio("assets/pokemon_theme.mp3");
+	audio.volume = 0.05;
+	const play_btn = document.getElementById("play_btn");
 
-  const pause_btn = document.getElementById("pause_btn");
-  pause_btn.addEventListener("click", () => {
-    audio.pause();
-    paused = true;
-  });
+	play_btn.addEventListener("click", () => {
+		if (paused === 0) {
+			audio.play();
+			paused = 1;
+		} else if (paused === 1) {
+			audio.pause();
+			paused = 2;
+		} else if (paused === 2) {
+			audio.play();
+			paused = 1;
+		}
+		play_btn.textContent = play_btn_labels[paused];
+	});
 }
-
 playTheme();
 
 
@@ -74,6 +81,10 @@ function dragElement(element) {
   function startDragging(e) {
     e = e || window.event;
     e.preventDefault();
+    const windowRect = element.getBoundingClientRect();
+    element.style.top = windowRect.top + "px";
+    element.style.left = windowRect.left + "px";
+    element.style.transform = "none";
     initialX = e.clientX;
     initialY = e.clientY;
     document.onmouseup = stopDragging;
@@ -87,10 +98,13 @@ function dragElement(element) {
     currentY = initialY - e.clientY;
     initialX = e.clientX;
     initialY = e.clientY;
-    const topBarHeight = topBar ? topBar.offsetHeight : 0;
-    const nextTop = Math.max(element.offsetTop - currentY, topBarHeight);
+    const windowRect = element.getBoundingClientRect();
+    const maxTop = window.innerHeight - windowRect.height - 12;
+    const maxLeft = window.innerWidth - windowRect.width - 12;
+    const nextTop = Math.min(Math.max(windowRect.top - currentY, 0), Math.max(0, maxTop));
+    const nextLeft = Math.min(Math.max(windowRect.left - currentX, 12), Math.max(12, maxLeft));
     element.style.top = nextTop + "px";
-    element.style.left = (element.offsetLeft - currentX) + "px";
+    element.style.left = nextLeft + "px";
   }
 
   function stopDragging() {
@@ -203,15 +217,33 @@ function addToPRSideBar(indexPR) {
   newDiv.style.cursor = "pointer"
   newDiv.style.padding = "8px 16px"
   newDiv.innerHTML = `
-    <p class="subheading-font" style="margin: 0; font-size: 16px;">${records.title}</p>
-    <p class="text-font" style="margin: 0; font-size: 12px;">${records.date}</p>
-    <div style="cursor: default; margin: 0; font-size: 12px; height: 30px  ;"></div>
+    <h2 class="subheading-font" style="margin: 0; font-size: 16px;" contenteditable = "true">${records.title}</h2>
+    <br>
+    <p class="text-font" style="margin: 0; font-size: 12px;" contenteditable = "true">${records.date}</p>
+    <br>
+    <div style="cursor: default; margin: 0; font-size: 12px; height: 30px;"></div>
   `
   newDiv.addEventListener("click", function() {
     setPRContent(indexPR)
   })
   sideBar.appendChild(newDiv)
 }
+
+var add_button = document.querySelector("#poke-records-plus")
+add_button.addEventListener("click", function() {
+  var newRecord = {
+    title: "New Record",
+    date: new Date().toLocaleDateString(),
+    content: `
+      <p contenteditable="true" class="text-font" style="margin: 16px; line-height: 1.6;">
+        This is a new record. You can edit this text.
+      </p>
+    `
+  }
+  PRcontent.push(newRecord)
+  addToPRSideBar(PRcontent.length-1)
+  setPRContent(PRcontent.length-1)
+})
 
 for (let i = 0; i < PRcontent.length; i++) {
   addToPRSideBar(i)
@@ -367,6 +399,18 @@ flipinput.addEventListener("click", () => {
 setCFContent(2);
 
 
+// -----------------------------------------------CLOSE all windows-------------------------------------------------------
+
+const close_all_btn = document.getElementById("close_all_btn");
+
+close_all_btn.addEventListener("click", () => {
+  closeWindow(welcomeScreen);
+  closeWindow(prScreen);
+  closeWindow(videoScreen);
+  closeWindow(imageScreen);
+  closeWindow(coinflipScreen);
+});
+
 // -----------------------------------------------INITIALIZE THE WINDOWS-------------------------------------------------------
 
 
@@ -423,3 +467,5 @@ addWindowTapHandling(prScreen)
 addWindowTapHandling(videoScreen)
 addWindowTapHandling(imageScreen)
 addWindowTapHandling(coinflipScreen)
+
+

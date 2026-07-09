@@ -1,3 +1,13 @@
+// -----------------------------------------------Preload-------------------------------------------------------
+
+function preload_images(content_array) {
+	content_array.forEach(item => {
+		const src = item.img.match(/src="([^"]+)"/)[1];
+		const img = new Image();
+		img.src = src;
+	});
+}
+
 // -----------------------------------------------THE TIME-------------------------------------------------------
 
 function changeTime() {
@@ -315,6 +325,10 @@ var ICcontent = [
   },
 ]
 
+
+
+preload_images(ICcontent);
+
 let indexIC = 0;
 
 function setICContent(i) {
@@ -353,6 +367,7 @@ var CFcontent = [
   },
 ]
 
+preload_images(CFcontent);
 
 
 let indexCF = 0;
